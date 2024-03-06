@@ -37,7 +37,7 @@ namespace CustomerCRUD.Service.CustomerServices.Implementations
             }
             else 
             { 
-                throw new ArgumentException("Customer not found.", nameof(customer.Name)); 
+                throw new ArgumentException($"Customer with Id {customer.Id} not found."); 
             }
         }
     }

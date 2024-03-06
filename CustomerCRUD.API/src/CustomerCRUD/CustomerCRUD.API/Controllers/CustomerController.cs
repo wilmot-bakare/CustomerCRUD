@@ -21,10 +21,12 @@ namespace CustomerCRUD.API.Controllers
         {
             try
             {
+                _logger.LogInformation($"Started AddCustomers:{customer.Name}");
                 return Ok(_customerService.AddCustomer(customer));
             }
             catch (Exception ex)
             {
+                _logger.LogError($"AddCustomers: An error ocurred:{ex.Message}");
                 return StatusCode(500, "An error occurred while adding the customer.");
             }
            
@@ -35,10 +37,12 @@ namespace CustomerCRUD.API.Controllers
         {
             try
             {
+                _logger.LogInformation($"Started GetCustomers");
                 return Ok(_customerService.Customers);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"An error ocurred:{ex.Message}");
                 return StatusCode(500, "An error occurred while fetching the customers.");
             }
            
@@ -49,11 +53,13 @@ namespace CustomerCRUD.API.Controllers
         {
             try
             {
+                _logger.LogInformation($"Started UpdateCustomers:{customer.Name}");
                 _customerService.UpdateCustomer(customer);
                 return Ok(customer);
             }
             catch (Exception ex)
             {
+                _logger.LogError($"An error ocurred:{ex.Message}");
                 return StatusCode(500, "An error occurred while updating the customer.");
             }
         }
