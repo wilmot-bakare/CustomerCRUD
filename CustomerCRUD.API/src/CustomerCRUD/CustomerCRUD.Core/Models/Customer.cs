@@ -24,7 +24,7 @@ namespace CustomerCRUD.Core.Models
         public string PostCode { get; set; }
 
         [Range(0, 2.50, ErrorMessage = "Height must be between 0 and 2.50")]
-        [RegularExpression(@"^(0(\.\d{1,2})?|2(\.0{1,2})?)$", ErrorMessage = "Height must be between 0 and 2.50 with only 2 decimal places.")]
+        [RegularExpression(@"^(?:[0-2](?:\.\d{1,2})?|2(?:\.50)?)$", ErrorMessage = "Height must be between 0 and 2.50 with only 2 decimal places.")]
         public double Height { get; set; }
     }
 }
