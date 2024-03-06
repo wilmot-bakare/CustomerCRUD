@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\.github",
+    "\\.github\\workflows",
+    "\\CustomerCRUD.API",
+    "\\CustomerCRUD.API\\src"
+  ],
+  "SelectedNode": "\\CustomerCRUD.API\\src",
+  "PreviewInSolutionExplorer": false
+}
