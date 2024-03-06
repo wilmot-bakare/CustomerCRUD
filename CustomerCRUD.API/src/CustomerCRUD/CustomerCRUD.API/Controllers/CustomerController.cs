@@ -1,4 +1,5 @@
-﻿using CustomerCRUD.Core.Models;
+﻿using CustomerCRUD.Core.DTOs;
+using CustomerCRUD.Core.Models;
 using CustomerCRUD.Service.CustomerServices.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,12 @@ namespace CustomerCRUD.API.Controllers
         }
 
         [HttpPost("AddCustomers")]
-        public async Task<ActionResult<Customer>> AddCustomers(Customer customer)
+        public async Task<ActionResult<Customer>> AddCustomers(CustomerDTO customerDto)
         {
             try
             {
-                _logger.LogInformation($"Started AddCustomers:{customer.Name}");
-                return Ok(_customerService.AddCustomer(customer));
+                _logger.LogInformation($"Started AddCustomers:{customerDto.Name}");
+                return Ok(_customerService.AddCustomer(customerDto));
             }
             catch (Exception ex)
             {

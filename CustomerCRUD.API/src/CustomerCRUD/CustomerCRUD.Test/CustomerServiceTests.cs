@@ -1,3 +1,4 @@
+using CustomerCRUD.Core.DTOs;
 using CustomerCRUD.Core.Models;
 using CustomerCRUD.Service.CustomerServices.Implementations;
 using CustomerCRUD.Service.CustomerServices.Interfaces;
@@ -19,38 +20,38 @@ namespace CustomerCRUD.Test
         public void AddCustomer_ShouldAddCustomerToList()
         {
             // Arrange
-            Customer customer = new Customer
+            CustomerDTO customer = new CustomerDTO
             {
-                Id = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                 Name = "Will Mot",
                 Age = 30,
+                PostCode = "ADF123",
                 Height = 1.75
             };
 
             // Act
-            _customerService.AddCustomer(customer);
+           var addedCustomer =  _customerService.AddCustomer(customer);
 
             // Assert
-            CollectionAssert.Contains(_customerService.Customers, customer);
+            CollectionAssert.Contains(_customerService.Customers, addedCustomer);
         }
 
         [TestMethod]
         public void UpdateCustomer_ExistingCustomer_ShouldUpdateCustomer()
         {
             // Arrange
-            Customer existingCustomer = new Customer
+            CustomerDTO existingCustomer = new CustomerDTO
             {
-                Id = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                 Name = "Mary Maye",
+                PostCode = "ADF123",
                 Age = 40,
                 Height = 1.80
             };
 
-            _customerService.AddCustomer(existingCustomer);
+           var addedCustomer =  _customerService.AddCustomer(existingCustomer);
 
             Customer updatedCustomer = new Customer
             {
-                Id = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
+                Id = addedCustomer.Id,
                 Name = "Mary May",
                 Age = 35,
                 Height = 1.85

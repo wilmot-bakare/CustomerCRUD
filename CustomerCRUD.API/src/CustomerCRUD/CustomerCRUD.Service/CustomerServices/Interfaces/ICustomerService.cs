@@ -1,4 +1,5 @@
-﻿using CustomerCRUD.Core.Models;
+﻿using CustomerCRUD.Core.DTOs;
+using CustomerCRUD.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace CustomerCRUD.Service.CustomerServices.Interfaces
     public interface ICustomerService
     {
         List<Customer> Customers { get; }
-        Customer AddCustomer(Customer customer);
+        Customer AddCustomer(CustomerDTO customer);
         Customer UpdateCustomer(Customer customer);
     }
 }

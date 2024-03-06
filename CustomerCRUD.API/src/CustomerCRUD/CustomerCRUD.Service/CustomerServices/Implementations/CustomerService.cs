@@ -1,4 +1,5 @@
-﻿using CustomerCRUD.Core.Models;
+﻿using CustomerCRUD.Core.DTOs;
+using CustomerCRUD.Core.Models;
 using CustomerCRUD.Service.CustomerServices.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,13 @@ namespace CustomerCRUD.Service.CustomerServices.Implementations
 
         public List<Customer> Customers => _customers;
 
-        public Customer AddCustomer(Customer customer)
+        public Customer AddCustomer(CustomerDTO customerDto)
         {
+            Customer customer = new Customer();
+            customer.Age= customerDto.Age;
+            customer.Name= customerDto.Name;
+            customer.PostCode= customerDto.PostCode;
+            customer.Height= customerDto.Height;
             _customers.Add(customer);
             return customer;
         }
