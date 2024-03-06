@@ -10,7 +10,7 @@ namespace CustomerCRUD.Service.CustomerServices.Interfaces
     public interface ICustomerService
     {
         List<Customer> Customers { get; }
-        void AddCustomer(Customer customer);
-        void UpdateCustomer(Customer customer);
+        Customer AddCustomer(Customer customer);
+        Customer UpdateCustomer(Customer customer);
     }
 }

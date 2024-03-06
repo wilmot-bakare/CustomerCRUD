@@ -19,12 +19,13 @@ namespace CustomerCRUD.Service.CustomerServices.Implementations
 
         public List<Customer> Customers => _customers;
 
-        public void AddCustomer(Customer customer)
+        public Customer AddCustomer(Customer customer)
         {
             _customers.Add(customer);
+            return customer;
         }
 
-        public void UpdateCustomer(Customer customer)
+        public Customer UpdateCustomer(Customer customer)
         {
            Customer existingCustomer = _customers.FirstOrDefault(c=>c.Id == customer.Id);
             if (existingCustomer != null)
@@ -32,6 +33,7 @@ namespace CustomerCRUD.Service.CustomerServices.Implementations
                 existingCustomer.Age= customer.Age;
                 existingCustomer.Name= customer.Name;
                 existingCustomer.Height= customer.Height;
+                return customer;
             }
             else 
             { 
