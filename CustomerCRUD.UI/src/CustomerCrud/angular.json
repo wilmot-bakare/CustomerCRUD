@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "CustomerCRUD.UI": {
+    "CustomerCrud": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/customer-crud.ui",
+            "outputPath": "dist/customer-crud",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,12 +37,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "prerender": true,
-            "ssr": {
-              "entry": "server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -68,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "CustomerCRUD.UI:build:production"
+              "buildTarget": "CustomerCrud:build:production"
             },
             "development": {
-              "buildTarget": "CustomerCRUD.UI:build:development"
+              "buildTarget": "CustomerCrud:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "CustomerCRUD.UI:build"
+            "buildTarget": "CustomerCrud:build"
           }
         },
         "test": {
@@ -104,6 +109,6 @@
     }
   },
   "cli": {
-    "analytics": "6e3d61f4-e65a-4c27-b3c1-f64c45f78850"
+    "analytics": false
   }
 }

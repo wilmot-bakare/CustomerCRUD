@@ -1,16 +1,20 @@
-<table>
-  <thead>
-    <th>Name</th>
-    <th>PostCode</th>
-    <th>Age</th>
-    <th>Height</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let customer of customers">
-      <td>{{customer.name}}</td>
-      <td>{{customer.postCode}}</td>
-      <td>{{customer.age}}</td>
-      <td>{{customer.height}}</td>
-    </tr>
-  </tbody>
-</table>
+<h1>Nigerian Banks</h1>
+<button >Add A New Customer</button>
+<table >
+    <thead >
+      <th>Name</th>
+      <th>PostCode</th>
+      <th>Age</th>
+      <th>Height</th>
+      <th >Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.name}}</td>
+        <td>{{customer.postCode}}</td>
+        <td>{{customer.age}}</td>
+        <td>{{customer.height}}</td>
+        <td><button >Edit</button></td>
+      </tr>
+    </tbody>
+  </table>
