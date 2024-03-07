@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { Customer } from './models/customer';
+import { CustomerService } from './services/customer.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +12,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CustomerCrud';
+  customers : Customer[]=[];
+
+  constructor(private customerService: CustomerService){
+
+  }
+  ngOnInit() : void{
+    this.customerService.getCustomers()
+    .subscribe((result:Customer[])=>(this.customers=result));
+     console.log(this.customers);
+   }
 }

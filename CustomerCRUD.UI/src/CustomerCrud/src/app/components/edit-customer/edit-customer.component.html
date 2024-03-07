@@ -1,1 +1,7 @@
-<p>edit-customer works!</p>
+<div *ngIf="customer">
+    <h2>{{customer?.name}}</h2>
+    <div>
+        Name:
+        <input [(ngModel)]="customer.name" placeholder="Name"/>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Customer } from '../../models/customer';
 
 @Component({
   selector: 'app-edit-customer',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './edit-customer.component.css'
 })
 export class EditCustomerComponent {
+  @Input() customer?:Customer;
 
+  constructor(){}
+  
+  ngOnInit():void{
+    
+  }
 }
