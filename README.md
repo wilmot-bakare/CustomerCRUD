@@ -1,4 +1,4 @@
-# CustomerCRUD
+# CustomerCRUD -- This is a project to create, edit and list customers. Built with .Net Core 6.0 and Angular 17
 ## I spent about 2 hours working on the project. Although it wasn't 2 hours at once, I took breaks at some point to attend to other things.
 ## The BackEnd API took me less than an hour. However, I spent a longer time on the frontend. I am backend heavy and ran into some problems with Angular 17 during development.
 ## On the Frontend, I used Angular 17.
