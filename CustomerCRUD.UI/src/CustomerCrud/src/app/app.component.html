@@ -1,6 +1,6 @@
 <div>
     <h1>Customer CRUD</h1>
-<button >Add A New Customer</button>
+<button (click)="addCustomer()">Add A New Customer</button>
     <table >
     <thead >
       <th>Name</th>
@@ -15,19 +15,10 @@
         <td>{{customer.postCode}}</td>
         <td>{{customer.age}}</td>
         <td>{{customer.height}}</td>
-        <td><button >Edit</button></td>
+        <td><button (click)="updateCustomer(customer)">Edit</button></td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-<router-outlet />
+<app-edit-customer [customer]="customerToEdit"></app-edit-customer>

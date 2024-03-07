@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Customer } from '../../models/customer';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-edit-customer',
@@ -8,10 +9,19 @@ import { Customer } from '../../models/customer';
 })
 export class EditCustomerComponent {
   @Input() customer?:Customer;
+  @Output() customerUpdated = new EventEmitter<Customer[]>();
 
-  constructor(){}
+  constructor(private customerService : CustomerService){}
   
   ngOnInit():void{
-    
+  }
+
+  updateCustomer(customer:Customer){
+    this.customerService.updateCustomers(customer)
+    .subscribe((result:Customer)=>(this.customer=result));
+  }
+  addCustomer(customer:Customer){
+    this.customerService.addCustomers(customer)
+    .subscribe((result:Customer)=>(this.customer=result));
   }
 }

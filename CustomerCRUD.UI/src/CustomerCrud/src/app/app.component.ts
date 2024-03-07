@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   title = 'CustomerCrud';
   customers : Customer[]=[];
+  customerToEdit? : Customer;
 
   constructor(private customerService: CustomerService){
 
@@ -22,4 +23,12 @@ export class AppComponent {
     .subscribe((result:Customer[])=>(this.customers=result));
      console.log(this.customers);
    }
+
+   addCustomer(){
+    this.customerToEdit = new Customer();
+  }
+   updateCustomer(customer:Customer){
+    this.customerToEdit = customer;
+   }
+   
 }

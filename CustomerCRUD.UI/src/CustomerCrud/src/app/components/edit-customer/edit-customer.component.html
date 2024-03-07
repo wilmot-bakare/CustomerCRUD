@@ -1,7 +1,21 @@
 <div *ngIf="customer">
-    <h2>{{customer?.name}}</h2>
+    <h2>{{customer.name}}</h2>
     <div>
         Name:
         <input [(ngModel)]="customer.name" placeholder="Name"/>
     </div>
+    <div>
+        Age:
+        <input [(ngModel)]="customer.age" placeholder="Age"/>
+    </div>
+    <div>
+        PostCode:
+        <input [(ngModel)]="customer.postCode" placeholder="PostCode"/>
+    </div>
+    <div>
+        Height:
+        <input [(ngModel)]="customer.height" placeholder="Height"/>
+    </div>
+    <button (click)="updateCustomer(customer)" *ngIf="customer.id"> Save</button>
+    <button (click)="addCustomer(customer)" *ngIf="!customer.id"> Create</button>
 </div>
